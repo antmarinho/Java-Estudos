@@ -9,9 +9,9 @@ public class ComposicaoPredicado {
 		Predicate<Integer> isPar = num -> (num % 2) == 0;
 		Predicate<Integer> isTresDigitos = num -> num >= 100 && num <= 999;
 		
-		System.out.println(isPar.and(isTresDigitos).negate().test(20));
+		System.out.println(isPar.and(isTresDigitos).negate().test(201));
 		
-		System.out.println(isPar.or(isTresDigitos).test(01));
+		System.out.println(isPar.or(isTresDigitos).test(901));
 		
 	}
 

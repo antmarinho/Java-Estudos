@@ -8,7 +8,7 @@ public class Predicado {  // recebe um argumento e retorna um booleano
 		
 		Predicate<Produto> isCaro = prod -> (prod.preco * (1 - prod.desconto)) >= 750;
 		
-		Produto produto = new Produto("not", 3000, 0.15);
+		Produto produto = new Produto("not", 3000, 0.1);
 		
 		System.out.println(isCaro.test(produto));
 		
