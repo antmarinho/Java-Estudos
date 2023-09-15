@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author acgm
+ *
+ */
+module StreamAPI {
+}
