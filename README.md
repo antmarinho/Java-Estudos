@@ -4,3 +4,4 @@
 - Orientação a Objetos
 - Funções Lambdas
 - Interfaces Funcionais
+- Stream API
