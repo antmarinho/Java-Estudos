@@ -5,3 +5,4 @@
 - Funções Lambdas
 - Interfaces Funcionais
 - Stream API
+- Tratamento de Erros
