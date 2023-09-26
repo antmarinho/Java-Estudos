@@ -6,3 +6,4 @@
 - Interfaces Funcionais
 - Stream API
 - Tratamento de Erros
+- Generics
