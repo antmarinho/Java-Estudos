@@ -7,4 +7,4 @@
 - Stream API
 - Tratamento de Erros
 - Generics
-- Java Desktop com Swing (adaptando o projeto campo minado usando swing)
+- Java Desktop com Swing (Projeto Campo minado e Calculadora)
