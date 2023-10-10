@@ -68,5 +68,22 @@ public class DAO {
 		return conexao;
 		
 	}
+	
+	public void close() {
+		
+		try {
+			getConexao().close();
+			
+		}
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		finally {
+			
+			conexao = null;
+		}
+		
+	}
 
 }
