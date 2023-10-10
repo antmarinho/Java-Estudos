@@ -9,3 +9,5 @@
 - Generics
 - Java Desktop com Swing (Projeto Campo minado e Calculadora),
 - JDBC
+- JPA
+- Hibernate
