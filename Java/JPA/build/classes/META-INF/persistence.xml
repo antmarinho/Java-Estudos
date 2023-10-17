@@ -3,6 +3,7 @@
 	<persistence-unit name="JPA">
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	<class>modelo.Usuario</class>
+	<class>modelo.Produto</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                 value="com.mysql.jdbc.Driver"/>
