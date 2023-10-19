@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -65,6 +64,12 @@ public class DAO<E> {
 		
 		
 		return this.abrirT().incluir(entidade).fecharT();
+	}
+	
+	public E obterPorID(Object id) {
+		
+		return em.find(classe, id);
+		
 	}
 	
 	public List<E> obterTodos() {

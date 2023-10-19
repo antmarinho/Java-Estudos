@@ -1,6 +1,6 @@
 package dao;
 
-import modelo.Produto;
+import modelo.basico.Produto;
 
 //feito por interface o DAO no lugar de classe
 
