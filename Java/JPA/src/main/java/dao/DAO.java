@@ -94,6 +94,7 @@ public class DAO<E> {
 		
 	}
 	
+	
 	public List<E> consultar(String nomeConsulta, Object... params){
 		
 		TypedQuery<E> query = em.createNamedQuery(nomeConsulta, classe);
@@ -104,6 +105,13 @@ public class DAO<E> {
 		}
 				
 		return query.getResultList();
+	}
+	
+	public E consultarUM(String nomeConsulta, Object... params){
+		
+		List<E> lista = consultar(nomeConsulta, params);
+		
+		return lista.isEmpty() ? null : lista.get(0);
 	}
 	
 	public void fechar() {
