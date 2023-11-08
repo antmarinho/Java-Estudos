@@ -17,9 +17,7 @@ public class ProdutoController {
 	private ProdutosRepository prodRepository;
 	
 	@PostMapping()
-	public @ResponseBody Produto novoProduto(@RequestParam String nome) {
-		
-		Produto prod =  new Produto(nome);
+	public @ResponseBody Produto novoProduto(Produto prod) {
 		
 		prodRepository.save(prod);
 				
