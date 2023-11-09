@@ -12,3 +12,4 @@
 - JPA Hibernate
 - Modularidade
 - Spring Boot
+- Threads
