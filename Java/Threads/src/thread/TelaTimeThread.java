@@ -2,7 +2,6 @@ package thread;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -11,6 +10,10 @@ import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class TelaTimeThread extends JDialog {
 	
@@ -24,6 +27,57 @@ public class TelaTimeThread extends JDialog {
 	
 	private JButton jb = new JButton("Start");
 	private JButton jbs = new JButton("Stop");
+	
+	private Thread tt;
+	private Thread tt2;
+	
+	private Runnable thread1 = new Runnable() {
+		
+		@Override
+		public void run() {
+			
+			while(true) {
+				
+				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").format(Calendar.getInstance().getTime()));
+				
+				try {
+					
+					Thread.sleep(1000);
+				} 
+				catch (InterruptedException e) 
+				{
+					e.printStackTrace();
+				}
+				
+			}
+			
+		}
+		
+	};
+	
+	private Runnable thread2 = new Runnable() {
+		
+		@Override
+		public void run() {
+			
+			while(true) {
+				
+				mostraTempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(Calendar.getInstance().getTime()));
+				
+				try {
+					
+					Thread.sleep(1000);
+				} 
+				catch (InterruptedException e) 
+				{
+					e.printStackTrace();
+				}
+				
+			}
+			
+		}
+		
+	};
 	
 	public TelaTimeThread() {
 		
@@ -66,6 +120,39 @@ public class TelaTimeThread extends JDialog {
 		gbc.gridx++;
 		jbs.setPreferredSize(new Dimension(92,25));
 		jp.add(jbs,gbc);
+		
+		jb.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				tt = new Thread(thread1);
+				tt.start();
+				
+				tt2 = new Thread(thread2);
+				tt2.start();
+				
+				jb.setEnabled(false);
+				jbs.setEnabled(true);
+				
+			}
+		});
+		
+		jbs.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				tt.stop();
+				tt2.stop();
+				
+				jb.setEnabled(true);
+				jbs.setEnabled(false);
+				
+			}
+		});
+		
+		jbs.setEnabled(false);
 		
 		add(jp,BorderLayout.WEST);
 		
