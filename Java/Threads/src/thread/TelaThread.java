@@ -73,12 +73,21 @@ public class TelaThread extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				ObjetoFilaThread ob = new ObjetoFilaThread();
+				if(fila == null) {
+					
+					fila.start();
+					
+				}
 				
-				ob.setNome(mostraTempo.getText());
-				ob.setEmail(mostraTempo2.getText());
+				for(int i = 0; i < 100; i++) { //simulando 100 envios
 				
-				fila.add(ob);
+					ObjetoFilaThread ob = new ObjetoFilaThread();
+				
+					ob.setNome(mostraTempo.getText());
+					ob.setEmail(mostraTempo2.getText());
+				
+					fila.add(ob);
+				}
 				
 			}
 		});
@@ -89,6 +98,7 @@ public class TelaThread extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				
 				fila.stop();
+				fila = null;
 				
 			}
 		});
