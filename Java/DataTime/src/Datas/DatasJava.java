@@ -23,12 +23,17 @@ public class DatasJava {
 		System.out.println("calendar dia da semana " + calendario.get(Calendar.DAY_OF_WEEK)); //aqui comeca domingo com 1
 		
 		System.out.println("hora do dia " + data.getHours());
+		System.out.println("hora do dia " + calendario.get(Calendar.HOUR_OF_DAY));
 		
 		System.out.println("minuto do dia " + data.getMinutes());
+		System.out.println("minuto do dia " + calendario.get(Calendar.MINUTE));
 		
 		System.out.println("segundos " + data.getSeconds());
+		System.out.println("segundos " + calendario.get(Calendar.SECOND));
+		
 		
 		System.out.println("ano " + (data.getYear() + 1900));
+		System.out.println("ano " + calendario.get(Calendar.YEAR));
 		
 		// simple date format
 		
@@ -36,13 +41,16 @@ public class DatasJava {
 		SimpleDateFormat formatData = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
 		System.out.println("data atual formatada " + formatData.format(data));
+		System.out.println("Calendar data atual formatada " + formatData.format(calendario.getTime()));
+		
 		
 		formatData = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 		System.out.println("formato bando de dados " + formatData.format(data));
+		System.out.println("Calendar formato bando de dados " + formatData.format(calendario.getTime()));
 		
 		System.out.println("retorna objeto data " + formatData.parse("1985-10-10 20:28:56"));
-
+		
 		
 		formatData = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("retorna objeto data " + formatData.parse("1985-10-10"));
