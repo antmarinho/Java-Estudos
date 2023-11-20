@@ -63,6 +63,11 @@ public class Usuario implements Serializable {
 	
 
 	@Override
+	public String toString() {
+		return "Usuario [login=" + login + ", senha=" + senha + ", cpf=" + cpf + ", nome=" + nome + "]";
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
