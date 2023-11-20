@@ -1,0 +1,4 @@
+jose;25;jose@gmail.com
+maria;18;maria@gmail.com
+rick;68;rick@gmail.com
+ana;2;ana@gmail.com
