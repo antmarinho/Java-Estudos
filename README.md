@@ -15,3 +15,4 @@
 - Threads
 - API DateTime
 - Arquivos
+- Java Mail
