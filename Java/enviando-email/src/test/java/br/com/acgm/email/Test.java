@@ -1,63 +1,28 @@
 package br.com.acgm.email;
 
-import java.util.Properties;
-import javax.mail.Address;
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 public class Test {
-	
-	private String user = "testeenvioemailjava123@gmail.com";
-	private String pass = "rqubadpnyrnaundb";
 	
 	@org.junit.Test
 	public void testeEmail() {
 		
-		//olhe as configuracoes smtp do seu email
+		StringBuilder sb = new StringBuilder();
 		
-		try {
+		sb.append("ola, <br/><br/>");
+		sb.append("<h2>vc estar recebendo acesso ao curso java <br/><br/></h2>");
+		sb.append("para ter acesso clique no link abaixo <br/> <br/>");
 		
-				Properties properties = new Properties();
+		sb.append("<b>Login:</b> jose@gmail.com <br/>");
+		sb.append("<b>senha:</b> fgfdhfdhfjgs <br/><br/>");
 		
-				properties.put("mail.smtp.auth","true"); //autorizacao
-				properties.put("mail.smtp.starttls","true"); //autenticacao
-				properties.put("mail.smtp.host","smtp.gmail.com"); //servidor gmail
-				properties.put("mail.smtp.port","465"); //porta do servidor
-				properties.put("mail.smtp.socketFactory.port","465"); //porta do socket
-				properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory"); //classe socket de conexao ao smtp
-				
-				Session session = Session.getInstance(properties, new Authenticator() {
-					
-					@Override
-					protected PasswordAuthentication getPasswordAuthentication() {
-						
-						return new PasswordAuthentication(user,pass);
-					}
-				});
-				
-				Address[] toUser = InternetAddress.parse("testeenvioemailjava123@gmail.com, ant.marinho@outlook.com");
-				
-				Message msg = new MimeMessage(session);
-				
-				msg.setFrom(new InternetAddress(user)); //quem esta enviando
-				msg.setRecipients(Message.RecipientType.TO,toUser); //email de destino
-				msg.setSubject("email enviado por jmail"); // assunto do email
-				msg.setText("vc acaba de receber email enviado com java"); //texto do email
-				
-				Transport.send(msg);
-				
-		}
-		catch (Exception e){
-			
-			e.printStackTrace();
-		}
+		sb.append("<a target=\"_blank\" href=\"https://google.com.br\" style=\"color:#2525a7; padding: 14px 25px; text-align:center; text-decoration: none; display:inline-block; border-radius: 30px; font-size:20px; font-family:courier; border: 3px solid green;background-color:#99DA39;\">Acessar portal</a><br/><br/>");
 		
+		sb.append("<span style=\"font-size: 8px\">Ass.: Alex do JDev</span>");
 		
+		ObjetoEnviarEmail enviarEmail = new ObjetoEnviarEmail("ant.marinho145@gmail.com","Antonio Marinho","testando email",sb.toString());
+		
+		enviarEmail.enviarEmail(true);
+	
 	}
 
 }
