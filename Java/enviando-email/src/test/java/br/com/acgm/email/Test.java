@@ -21,7 +21,9 @@ public class Test {
 		
 		ObjetoEnviarEmail enviarEmail = new ObjetoEnviarEmail("ant.marinho145@gmail.com","Antonio Marinho","testando email",sb.toString());
 		
-		enviarEmail.enviarEmail(true);
+		enviarEmail.enviarEmailAnexo(true);
+		
+		//enviarEmail.enviarEmail(true);
 	
 	}
 
