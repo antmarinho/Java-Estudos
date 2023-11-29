@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import br.com.emailproject.dto.EmailLayout;
 import br.com.emailproject.model.Email;
 import br.com.emailproject.service.EmailService;
@@ -15,6 +14,9 @@ public class EmailBean implements Serializable {
 
 	private static final long serialVersionUID = 4538755582654584073L;
 
+	private static final String DESTINATARIO = "ant.marinho145@gmail.com";
+	private static final String ASSUNTO = "mudanca senha";
+	
 	@Inject
 	private EmailService emailService;
 	
@@ -29,7 +31,7 @@ public class EmailBean implements Serializable {
 		
 		EmailLayout layout = new EmailLayout();
 		
-		return layout.montarEmailAdmin("josee@gmail.com", "mudanca senha");
+		return layout.montarEmailAdmin(DESTINATARIO,ASSUNTO);
 	}
 
 }

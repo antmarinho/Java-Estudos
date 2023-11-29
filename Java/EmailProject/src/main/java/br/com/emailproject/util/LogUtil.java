@@ -10,8 +10,6 @@ public class LogUtil {
 	
 	public static Logger getLogger(Object ob) {
 		
-		
-		
 		return Logger.getLogger(ob.getClass());
 	}
 
