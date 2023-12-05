@@ -1,26 +1,13 @@
 package model;
 
-public class UserJava {
-
-	private Long id;
+public class BeanUserFone {
+	
 	private String nome;
 	private String email;
+	private String numero;
 	
-	public UserJava() { 
+	public BeanUserFone() {
 		
-	}
-
-	public UserJava(String nome, String email) {
-		this.nome = nome;
-		this.email = email;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -39,9 +26,17 @@ public class UserJava {
 		this.email = email;
 	}
 
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 	@Override
 	public String toString() {
-		return "UserJava [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+		return "BeanUserFone [nome=" + nome + ", email=" + email + ", numero=" + numero + "]";
 	}
-	
+
 }

@@ -23,7 +23,7 @@ public class SingleConnection {
 		try {
 			
 			if(con == null) {
-				Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				con = DriverManager.getConnection(url, user, pass);
 				con.setAutoCommit(false);
 				System.out.println("ok");
