@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.ModelLogin;
+import model.Users;
 
 //controller sao as servlets ou ServletLoginController
 @WebServlet(urlPatterns = {"/principal/ServletLogin"})
@@ -26,7 +26,17 @@ public class ServletLogin extends HttpServlet {
 	//recebe os dados pela url em parametros
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doPost(request, response);
+		String acao = request.getParameter("acao");
+		
+		if(acao != null && !acao.isEmpty() && acao.equalsIgnoreCase("logout")) {
+			
+			request.getSession().setAttribute("usuario", null);
+			request.getSession().invalidate(); //invalida sessao
+			RequestDispatcher redirecionar = request.getRequestDispatcher("/index.jsp");
+			redirecionar.forward(request, response);
+		}
+		else
+			doPost(request, response);
 	}
 
 	//recebe os dados enviado por um formulario
@@ -40,11 +50,10 @@ public class ServletLogin extends HttpServlet {
 		
 				if(login != null && !login.isEmpty() && senha != null && !senha.isEmpty()) {
 					
-					ModelLogin ml = new ModelLogin();
+					Users ml = new Users();
 					ml.setLogin(login);
 					ml.setSenha(senha);
 					
-					//simulador login
 					if(dao.validarAutenticacao(ml)) {
 						
 						request.getSession().setAttribute("usuario", ml.getLogin());
@@ -72,7 +81,7 @@ public class ServletLogin extends HttpServlet {
 					redirecionar.forward(request, response);
 				}
 				
-		}catch (Exception e) {
+		} catch (Exception e) {
 
 			e.printStackTrace();
 			RequestDispatcher redirecionar = request.getRequestDispatcher("/erro.jsp");

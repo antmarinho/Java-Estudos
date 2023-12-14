@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import connection.SingleConnection;
-import model.ModelLogin;
+import model.Users;
 
 public class DAOLoginRepository {
 	
@@ -17,7 +17,7 @@ public class DAOLoginRepository {
 		con = SingleConnection.getConnection();
 	}
 	
-	public boolean validarAutenticacao(ModelLogin ml) throws SQLException {
+	public boolean validarAutenticacao(Users ml) throws SQLException {
 		
 		String sql = "SELECT * FROM users WHERE login = ? AND senha = ?";
 		
